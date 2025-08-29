@@ -1,16 +1,13 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
-
 const fetchWrapper = async (url, options = {}) => {
-  const response = await fetch(`${API_URL}${url}`, {
+  const response = await fetch(`${process.env.VITE_API_URL}${url}`, {
     ...options,
     headers: {
       'Content-Type': 'application/json',
       ...options.headers,
     },
-  })
-  const data = await response.json()
-  if (!response.ok) throw new Error(data.message || 'API request failed')
-  return data
-}
+  });
+  if (!response.ok) throw new Error('Network error');
+  return response.status === 204 ? null : response.json();
+};
 
-export default fetchWrapper
+export default fetchWrapper;
