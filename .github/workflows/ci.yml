@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: '18'
       - run: cd backend && npm install && npm test
+      - run: cd backend && npm run test:auth && npm run test:entities && npm run test:features
   frontend:
     runs-on: ubuntu-latest
     steps:

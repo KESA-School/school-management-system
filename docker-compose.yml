@@ -1,6 +1,9 @@
 version: '3.8'
 services:
   backend:
+    environment:
+      - SUPABASE_URL=https://rzoljxxfnpshhfyjbcpa.supabase.co
+      - SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6b2xqeHhmbnBzaGhmeWpiY3BhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzOTg0MjEsImV4cCI6MjA3MTk3NDQyMX0.8zm2s7b4O6kpJ-VQqGMorQm_m3rklfTI22a_VcvIV54
     build: ./backend
     ports:
       - '3000:3000'
